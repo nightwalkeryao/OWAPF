@@ -1,5 +1,3 @@
-//go.js for online admin finder tool by Huntr@inspiratesNG
-
 function $id(elt){
     return document.getElementById(elt);
 }
@@ -20,8 +18,6 @@ function xhandler(){
     }
     return xhr;
 }
-
-
 var demarrer = $id("find");
 demarrer.addEventListener("click", function(){
     var cible = $id("website").value;
@@ -34,8 +30,6 @@ demarrer.addEventListener("click", function(){
     var bonnecible = (cible.length>=11 ? true : false);
     if($id("statut"))
         $id("statut").parentNode.removeChild($id("statut"));
-    //if(xhr1)
-        //xhr1.abort();
     var ndiv = document.createElement("div");
     ndiv.id = "statut";
     if(!bonnecible)
@@ -53,12 +47,8 @@ demarrer.addEventListener("click", function(){
         xhr1.open("GET", "./wdlst.txt");
         xhr1.onreadystatechange = function(){
             if(xhr1.readyState == 4 && xhr1.status == 200){
-                //alert(788);
                 var xyz = xhr1.responseText;
-                //xyz = xyz.replace(/[\s\t\r\n]/g,"*");
                 mots = xyz;
-                
-                //alert(mots);
                 var tltests = mots.split('|').length, succs = 0, echc=0, dilem = 0, reds = 0, tstd = 0, i=0;
                 
                 //registres
@@ -81,11 +71,6 @@ demarrer.addEventListener("click", function(){
                         xhrs.setRequestHeader('Access-Control-Allow-Origin','*');
                         xhrs.onreadystatechange = function(){
                         if(xhrs.readyState == 4 && xhrs.status == 200){
-                            /*if(tstd>=tltests){
-                                $id("gify").style.display = 'none';
-                                $id("fraction").innerHTML += "<br><br> Job finished!";
-                                clearInterval(intval);
-                            }*/
                             var ntr = document.createElement("tr");
                             var rep = xhrs.responseText;
                             rep = JSON.parse(rep);
@@ -204,5 +189,3 @@ demarrer.addEventListener("click", function(){
     }
     
 }, false);
-
-//alert(typeof(xhr1));
