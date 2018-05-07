@@ -1,23 +1,6 @@
 <?php
 $base = $_REQUEST['cible'];
-
-/*$fil = 'xyz.txt';
-$f = @file_get_contents($fil);
-$f = preg_replace('#[\r\n\s]#', '|', $f);
-$f = str_replace('|||','|',$f);
-$f = str_replace('||','|',$f);
-
-$fs = explode('|', $f);
-$db = array();
-for($i=0; $i<count($fs); $i++){
-	if(!in_array($fs[$i],$db))
-		$db[] = $fs[$i];
-}
-file_put_contents('wdlst.txt', implode('|', $db));
-$ret = '';
-
-foreach ($db as $cible) {*/
-$stc = array();
+$stc = array(); //code de reponse http
 $stc[100] = "Continue";
 $stc[101] = "Switching Protocols";
 $stc[200] = 'OK !';
@@ -80,17 +63,3 @@ $stext = $stc[$httpcode];
 
 $ret = '{"statut":"'.$httpcode.'","url":"'.$base.'","xplic":"'.$stext.'"}'; 
 echo $ret;
-
-
-/*
-$ch = curl_init();
-
-$info = curl_getinfo($ch);
-echo $info["http_code"];
-
-
-$url = 'http://www.example.com';
-$ch = curl_init($url);
-c
-echo 'HTTP code: ' . $httpcode;
-*/
